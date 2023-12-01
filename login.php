@@ -68,6 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
         .alert {
             border-radius: 8px;
         }
+        h2 {
+            color: #28a745;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -82,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
             </button>
         </div>
     <?php endif; ?>
-
+    <h2 class="mb-3">Inicie sesión</h2>
     <form method="post" action="login.php">
         <div class="form-group">
             <label for="correo">Correo:</label>
