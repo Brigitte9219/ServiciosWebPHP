@@ -37,20 +37,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
         .container {
             max-width: 400px;
             margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
         .form-group {
             margin-bottom: 20px;
         }
 
+        .form-control {
+            border-radius: 4px;
+            box-shadow: none;
+        }
+
         .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #28a745;
+            border-color: #28a745;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+        .alert {
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -85,4 +101,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
