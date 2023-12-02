@@ -1,24 +1,22 @@
 <?php
-session_start();//Inicia o reanuda la sesion actual
-require('conexion.php');//Contiene el archivo que contiene la conexion a la BD
+session_start(); // Inicia o reanuda la sesión actual
+require('conexion.php'); // Contiene el archivo que contiene la conexión a la BD
 
 $message = ""; // Variable para almacenar el mensaje de la alerta
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha enviado mediante el método POST
-    $correo = $_POST['correo'];//Obtiene el valor del correo
-    $password = $_POST['password'];//Obtiene el valor de la contraseña
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Verifica si el formulario se ha enviado mediante el método POST
+    $correo = $_POST['correo']; // Obtiene el valor del correo
+    $password = $_POST['password']; // Obtiene el valor de la contraseña
 
-    $sql = "SELECT * FROM personas WHERE correo='$correo' AND password='$password'";//Se verifica si hay una coincidencia con los datos anteriores en BD
-    $result = $conn->query($sql);//Ejecuta la consulta
+    $sql = "SELECT * FROM personas WHERE correo='$correo' AND password='$password'"; // Verifica si hay una coincidencia con los datos anteriores en BD
+    $result = $conn->query($sql); // Ejecuta la consulta
 
-    if ($result->num_rows > 0) {//Se verifica si encuentra al menos una fila en el resultado de la consulta, si es asi, se considera exitoso
-        $_SESSION['loggedin'] = true;//Indica que el usuario ha iniciado sesion
-        // Mensaje de éxito
+    if ($result->num_rows > 0) { // Verifica si encuentra al menos una fila en el resultado de la consulta, si es así, se considera exitoso
+        $_SESSION['loggedin'] = true; // Indica que el usuario ha iniciado sesión
         $message = "Inicio de sesión exitoso";
-        // Redirigir después de 2 segundos
-        header("refresh:2;url=crud.php");//Redirige a la página crud.php
+        header("refresh:2;url=crud.php"); // Redirige a la página crud.php después de 2 segundos
     } else {
-        $message = "Usuario o contraseña incorrectos";//Mensaje de error
+        $message = "Usuario o contraseña incorrectos"; // Mensaje de error
     }
 }
 ?>
@@ -68,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
         .alert {
             border-radius: 8px;
         }
+
         h2 {
             color: #28a745;
             text-align: center;
@@ -86,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
             </button>
         </div>
     <?php endif; ?>
+
     <h2 class="mb-3">Inicie sesión</h2>
     <form method="post" action="login.php">
         <div class="form-group">
@@ -98,6 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {//Verifica si el formulario se ha env
         </div>
         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
+
+    <!-- Enlace a la página de registro aquí -->
+    <p>¿Aún no tienes una cuenta? <a href="register.php">Registrate aquí</a></p>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
